@@ -3,7 +3,7 @@ import { join } from "node:path";
 import { expect, it } from "vitest";
 import { launchVerificationServer, runControlOmb } from "../scripts/control-omb.ts";
 
-it("gives a Grok turn OpenMausBot's own tools by URL, no proxy process each, every one listed and callable", async () => {
+it("gives a Grok turn SRK BotHub's own tools by URL, no proxy process each, every one listed and callable", async () => {
   const fixture = await launchVerificationServer({}, undefined, undefined, undefined, undefined, undefined, ["grok"]);
   const { url, dataDir, logPath } = fixture.info;
   const evidence: unknown[] = [{ fixture: fixture.info }];
@@ -60,7 +60,7 @@ it("gives a Grok turn OpenMausBot's own tools by URL, no proxy process each, eve
     const overUrl = lists(await turn("List your tools."));
     const sent = JSON.parse(readFileSync(`${dump}.mcp.json`, "utf8")) as Sent;
     evidence.push({ stdioSent: stdioSent.map(({ name, type, command }) => ({ name, type, command })), sent: sent.map(({ name, type, url, command }) => ({ name, type, url, command })) });
-    // None of OpenMausBot's own servers is a process any more: each is this server's endpoint, with every tool it listed before.
+    // None of SRK BotHub's own servers is a process any more: each is this server's endpoint, with every tool it listed before.
     expect(sent.filter(ownProxy)).toEqual([]);
     const own = sent.filter((server) => server.type === "http");
     expect(own.map((server) => server.name).sort()).toEqual(stdioSent.filter(ownProxy).map((server) => server.name).sort());

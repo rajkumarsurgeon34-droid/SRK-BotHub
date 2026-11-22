@@ -19,7 +19,7 @@ import {
   resolveHermesModels,
 } from "./hermes.ts";
 
-describe("Hermes OpenMaus screenshot compatibility binding", () => {
+describe("Hermes SRK BotHub screenshot compatibility binding", () => {
   it("binds the exact leaf model for an injected local picker model", () => {
     const env = {
       [HERMES_OPENMAUS_SCREENSHOT_COMPAT]: undefined,

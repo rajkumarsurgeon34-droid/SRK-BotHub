@@ -151,7 +151,7 @@ export class SavedServers {
 
   private putToken(name: string, token: string): SavedServer["store"] {
     if (this.platform === "darwin") {
-      const added = this.security(["-i"], `add-generic-password -U -s ${quoted(KEYCHAIN_SERVICE)} -a ${quoted(name)} -l ${quoted(`OpenMausBot CLI: ${name}`)} -w ${quoted(token)}\n`);
+      const added = this.security(["-i"], `add-generic-password -U -s ${quoted(KEYCHAIN_SERVICE)} -a ${quoted(name)} -l ${quoted(`SRK BotHub CLI: ${name}`)} -w ${quoted(token)}\n`);
       if (added.status === 0) return "keychain";
     }
     if (!this.dir) throw new HeadlessError("no home folder to keep the sign-in in", EXIT.failed, "set HOME");

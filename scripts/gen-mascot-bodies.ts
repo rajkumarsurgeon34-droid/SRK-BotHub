@@ -17,7 +17,7 @@ import { maskFromPolylines } from "./mascot-bodies/raster.ts"
 import { fieldFromMask, largestInscribedCircle, type Sdf } from "./mascot-bodies/sdf.ts"
 import { buildClouds, maxScaleAt, report } from "./mascot-bodies/solve.ts"
 
-const DEFAULT_ID = "cursor"
+const DEFAULT_ID = "squircle"
 
 /** The avatar renders every expression facing forward, which zeroes the authored gaze. */
 const LOOK_AROUND = 0
@@ -324,7 +324,7 @@ enum MausBodies {
     static let order: [String] = [${order}]
 
     /// The shipped mascot, and the fallback for any unrecognised value.
-    static let defaultID = "cursor"
+    static let defaultID = "squircle"
 
     static let all: [String: Body] = [
 ${entries}
@@ -412,7 +412,7 @@ internal object MausBodies {
     val order: List<String> = listOf(${order})
 
     /** The shipped mascot, and the fallback for any unrecognised value. */
-    const val DEFAULT_ID: String = "cursor"
+    const val DEFAULT_ID: String = "squircle"
 
     val all: Map<String, Body> = mapOf(
 ${entries}

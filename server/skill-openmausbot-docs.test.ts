@@ -10,12 +10,12 @@ describe("openmausbot-docs skill guide", () => {
 
   it("mounts when the person asks about the app's own settings, and stays out of ordinary work", () => {
     for (const text of [
-      "Where does OpenMausBot keep its bots?",
+      "Where does SRK BotHub keep its bots?",
       "how do I change the approval level for one bot",
-      "Open MausBot 的配置文件在哪",
+      "Open BotHub 的配置文件在哪",
       "where are my bot's routines stored",
       "explain OMB settings for connected apps",
-      "MausBot 设置里记忆开关是什么意思",
+      "BotHub 设置里记忆开关是什么意思",
     ]) {
       expect(ids(text), text).toContain("openmausbot-docs");
     }

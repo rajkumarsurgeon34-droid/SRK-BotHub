@@ -1,7 +1,7 @@
 # Pi shell timeouts
 
 Pi 1.5.0's native `bash` and `powershell` tools take `timeout` in seconds and
-have no default. OpenMausBot supplies 120 seconds when omitted and refuses
+have no default. SRK BotHub supplies 120 seconds when omitted and refuses
 values outside `(0, 900]` with a tool error explaining the unit. A refused
 command never starts, and Pi can continue the conversation after the error.
 Services that must outlive a command should run in the background and be

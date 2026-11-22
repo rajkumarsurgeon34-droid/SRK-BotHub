@@ -23,9 +23,9 @@ describe("codeLocation", () => {
   });
 
   it("finds the app's own folder in a Windows path or file URL", () => {
-    const root = "C:\\a\\OpenMausBot";
+    const root = "C:\\a\\SRK BotHub";
     expect(codeLocation(frame("tick", "file:///C:/a/OpenMausBot/server/perf/x.ts", 1), root)).toBe("tick server/perf/x.ts:2:5");
-    expect(codeLocation(frame("tick", "C:\\a\\OpenMausBot\\server\\perf\\x.ts", 1), root)).toBe("tick server/perf/x.ts:2:5");
+    expect(codeLocation(frame("tick", "C:\\a\\SRK BotHub\\server\\perf\\x.ts", 1), root)).toBe("tick server/perf/x.ts:2:5");
     expect(codeLocation(frame("tick", "file:///c:/a/OpenMausBot/server/perf/x.ts", 1), root)).toBe("tick server/perf/x.ts:2:5");
     expect(codeLocation(frame("tick", "file:///D:/elsewhere/y.ts", 1), root)).toBe("tick y.ts:2:5");
   });

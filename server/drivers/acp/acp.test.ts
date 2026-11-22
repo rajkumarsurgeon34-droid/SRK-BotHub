@@ -535,7 +535,7 @@ describe("ACP turns (fake CLI)", () => {
       .toBe("Standing rules.\n\nMemory: likes quiet hours.\n\nfirst");
     expect(await send("second", "Memory: likes quiet hours.")).toBe("second");
     expect(await send("third", "Memory: moved to Toronto."))
-      .toBe("Context from OpenMausBot updated since this conversation started; it replaces any earlier copy:\n\nMemory: moved to Toronto.\n\nthird");
+      .toBe("Context from SRK BotHub updated since this conversation started; it replaces any earlier copy:\n\nMemory: moved to Toronto.\n\nthird");
     expect(await send("fourth", "")).toContain("have been cleared");
     expect(await send("fifth", "")).toBe("fifth");
   });
@@ -1277,7 +1277,7 @@ describe("ACP turns (fake CLI)", () => {
     });
   });
 
-  it("hands an agent that reaches MCP servers by URL OpenMausBot's own servers as endpoints of this server, no proxy process", async () => {
+  it("hands an agent that reaches MCP servers by URL SRK BotHub's own servers as endpoints of this server, no proxy process", async () => {
     await create(createAcpDriver({ ...SELECT_MODEL_SUPPORT, driverKind: "httpMcpTest", selectModel: undefined, ownMcpOverHttp: true }));
     const dump = join(scratch, "own-http.json");
     process.env.FAKE_ACP_DUMP = dump;
@@ -1303,7 +1303,7 @@ describe("ACP turns (fake CLI)", () => {
     { advertised: "http", setting: undefined, form: "url" },
     { advertised: undefined, setting: undefined, form: "stdio" },
     { advertised: "http", setting: "0", form: "stdio" },
-  ])("gives Grok OpenMausBot's own servers by URL in its first session when its initialize says it takes them (advertised=$advertised, OMB_OWN_MCP_HTTP=$setting)", async ({ advertised, setting, form }) => {
+  ])("gives Grok SRK BotHub's own servers by URL in its first session when its initialize says it takes them (advertised=$advertised, OMB_OWN_MCP_HTTP=$setting)", async ({ advertised, setting, form }) => {
     if (advertised) process.env.FAKE_ACP_MCP_TRANSPORTS = advertised;
     if (setting) vi.stubEnv("OMB_OWN_MCP_HTTP", setting);
     try {
@@ -1484,7 +1484,7 @@ describe("ACP turns (fake CLI)", () => {
   it.each([
     ["advertises no remote transport", undefined],
     ["advertises http and sse", "http,sse"],
-  ])("mounts every url server as OpenMausBot's connector for an agent that %s", async (_name, transports) => {
+  ])("mounts every url server as SRK BotHub's connector for an agent that %s", async (_name, transports) => {
     if (transports) process.env.FAKE_ACP_MCP_TRANSPORTS = transports;
     try {
       await create();
@@ -1507,7 +1507,7 @@ describe("ACP turns (fake CLI)", () => {
   });
 
   // The fake agent connects each mounted server with grok 1.0.25's handshake, which a strict server refuses.
-  it("lists a strict url server's tools through OpenMausBot's connector, even for an agent that speaks http", async () => {
+  it("lists a strict url server's tools through SRK BotHub's connector, even for an agent that speaks http", async () => {
     const strict = await startFakeHttpMcp({ strictInitialize: "http-400", strictSchema: "2025-11-25",
       tools: [{ name: "report", inputSchema: { type: "object" } }, { name: "campaigns", inputSchema: { type: "object" } }],
       requireHeader: { name: "Authorization", value: "Bearer tok-voluum" } });
@@ -1520,7 +1520,7 @@ describe("ACP turns (fake CLI)", () => {
       expect(await recorder.until((event) => event.type === "turn.completed")).toMatchObject({ ok: true });
       const text = recorder.events.find((event) => event.type === "item.completed" && (event as { itemType?: string }).itemType === "assistant_text");
       expect((text as { text?: string } | undefined)?.text).toBe("voluum: report,campaigns");
-      expect(strict.initializes).toEqual([{ protocolVersion: "2025-06-18", capabilities: {}, clientInfo: { name: "OpenMausBot tool proxy", version: "1" } }]);
+      expect(strict.initializes).toEqual([{ protocolVersion: "2025-06-18", capabilities: {}, clientInfo: { name: "SRK BotHub tool proxy", version: "1" } }]);
     } finally {
       delete process.env.FAKE_ACP_MCP_TRANSPORTS;
       await strict.close();

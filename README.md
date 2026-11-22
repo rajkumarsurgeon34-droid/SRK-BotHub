@@ -6,8 +6,14 @@
 [OpenMausBot](https://github.com/milind-soni/OpenMausBot) (commit 87d8a797d) by Milind Soni and contributors,
 used under the Apache License 2.0 (see `LICENSE` and `NOTICE`). The `enterprise/` folder, which is under a
 separate non-redistributable licence, is not included. "OpenMausBot", "MausBot" and the mascot are trademarks
-of Supamaus Software Private Limited; this project is not affiliated with or endorsed by them.
-Below is the original project description.</sub>
+of Supamaus Software Private Limited; this project is not affiliated with or endorsed by them.</sub>
+
+> **About this version.** The app is rebranded: it is called **SRK BotHub** (installed as *BotHub*), its default
+> bot is **BotHub**, and it has its own icon. Updates are checked against this repository only. Some features still
+> use the original author's online services — *MausBot Cloud* plans and accounts, bug reports sent with `@devs`
+> (they go to the original team), app publishing, and a few helper downloads — and keep his names where they appear.
+
+<sub>Below is the original project description.</sub>
 
 
 **The open-source Grok Bot alternative: your own team of AI bots, in a chat app.**

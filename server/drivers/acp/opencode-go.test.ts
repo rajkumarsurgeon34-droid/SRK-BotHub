@@ -552,7 +552,7 @@ describe("OpenCode catalog", () => {
     },
   );
 
-  it("points a rejected Zen key at the key OpenMaus saves", () => {
+  it("points a rejected Zen key at the key SRK BotHub saves", () => {
     expect(describeOpenCodeAccountError("invalid_credentials", "opencode/big-pickle")).toContain("Settings → AI → Providers");
     for (const model of [undefined, "opencode/big-pickle", "opencode-go/minimax-m3"]) {
       expect(describeOpenCodeAccountError("invalid_credentials", model)).not.toContain("opencode auth login");
@@ -1258,7 +1258,7 @@ describe("OpenCode catalog probes", () => {
   });
 });
 
-describe("OpenCode access to folders OpenMaus owns", () => {
+describe("OpenCode access to folders SRK BotHub owns", () => {
   it("names the attachments folder and only this bot's shared folder", () => {
     expect(openCodeOwnedDirectories("bot-7")).toEqual([ATTACHMENTS_DIR, workspaceDir("bot-7")]);
     expect(openCodeOwnedDirectories("..")).toEqual([ATTACHMENTS_DIR]);

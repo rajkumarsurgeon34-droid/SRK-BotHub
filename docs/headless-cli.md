@@ -1,4 +1,4 @@
-# Run OpenMausBot from scripts and CI
+# Run SRK BotHub from scripts and CI
 
 The `openmausbot` command can drive a running workspace without a screen: set
 up a team from a file, give a bot a job, wait until it and every teammate it
@@ -21,12 +21,12 @@ files it links, and writes everything to `./rehearsal`.
 ## Sign in once
 
 ```sh
-openmausbot login                     # the MausBot app on this computer
+openmausbot login                     # the BotHub app on this computer
 openmausbot login https://maus.example.com   # a Cloud or a server elsewhere
 ```
 
 `login` asks the server, and the person allows it with one click. On this
-computer the MausBot app shows a card, "A terminal wants to control MausBot",
+computer the BotHub app shows a card, "A terminal wants to control BotHub",
 with a short code; the same code is printed in the terminal, so you allow the
 terminal you are looking at. For a Cloud or a server elsewhere your browser
 opens the server's page, where the same card waits (sign in there first if it
@@ -140,7 +140,7 @@ one of its conversations.
 | `status` | Every bot at a glance: working, waiting on you, waiting on teammates, paused, failed or idle, with its computer and team. |
 | `bots`, `channels`, `models` | Your bots and what each is doing, your rooms, the engines and the models each offers. |
 | `bots get BOT` | One bot: its team, state, computer, model, approvals and conversations. |
-| `bots delete BOTS` | Deletes bots with their conversations (below). The MausBot bot and a busy bot are refused. |
+| `bots delete BOTS` | Deletes bots with their conversations (below). The BotHub bot and a busy bot are refused. |
 | `bots pause BOTS`, `bots resume BOTS` | Pauses bots: their work stops and nothing new starts, across restarts, until resumed. `--team` pauses the team itself, so bots added to it later are paused too; `--all` pauses every bot. |
 | `stop BOTS` (or `bots stop`) | Stops the work these bots are doing now, and pauses nothing: a new message or routine starts them again. |
 | `threads list BOT`, `threads clear BOT`, `threads delete BOT THREAD…` | A bot's conversations; `clear` deletes all of them and the bot starts one new, empty one. A conversation that is working is kept. |
@@ -157,7 +157,7 @@ one of its conversations.
 | `connect [URL]` | Gets a token for a workspace elsewhere. |
 | `token create NAME`, `token list`, `token revoke ID` | Access tokens for CI that end on their date (above). |
 | `new-bot`, `new-channel`, `set-model`, `edit` | Make a bot or a room, change a bot's model, rewrite an earlier message. |
-| `mcp` | The OpenMausBot MCP server on stdin and stdout ([docs/mcp-server.md](mcp-server.md)). |
+| `mcp` | The SRK BotHub MCP server on stdin and stdout ([docs/mcp-server.md](mcp-server.md)). |
 
 The message for `send` and `run` can be the next word, `--text TEXT`,
 `--message-file FILE`, or `-` to read it from stdin.
@@ -211,7 +211,7 @@ and 100 GB for a Team server), disk encryption, CPUs and memory (a Team needs
 (required with `--domain HOST`, else only a warning), and the clock against
 network time (signed requests allow 300 seconds). It changes nothing.
 
-On a server that runs MausBot's own connector (a team on its own server), it
+On a server that runs BotHub's own connector (a team on its own server), it
 also asks the connector for its checks (`mausbot-connector probe --json`,
 which starts the bots' box once under the home's own security settings) and
 lists any that fail. There the home runs under its own AppArmor profile, so

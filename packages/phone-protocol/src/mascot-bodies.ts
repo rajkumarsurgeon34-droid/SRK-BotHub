@@ -38,7 +38,7 @@ export interface MascotBody {
 }
 
 /** The shipped mascot, and the fallback for any unrecognised value. */
-export const DEFAULT_MASCOT_BODY: MascotBodyId = "cursor";
+export const DEFAULT_MASCOT_BODY: MascotBodyId = "squircle";
 
 export const MASCOT_BODIES: Record<MascotBodyId, MascotBody> = {
   cursor: {

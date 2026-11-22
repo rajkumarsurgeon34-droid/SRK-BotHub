@@ -193,7 +193,7 @@ export function AppNotices({ quiet = false, viewer = null, now = Date.now }: { q
   // also for a launch after the one whose welcome just finished. Account and billing notices keep their own rules.
   // Unknown (null) until the bots have loaded, so nothing lower in the queue flashes up before them.
   const firstChat = firstReplyPending(state);
-  // MausBot's first-launch card goes first: the popup and the question wait while it is due. The popup skips a launch the
+  // BotHub's first-launch card goes first: the popup and the question wait while it is due. The popup skips a launch the
   // card used; the question may follow the card once it closes, as it follows the popup.
   const afterWelcome = welcomeFinishedThisLaunch() || launchDialogShown() === "mausbot" || firstChat;
   const consentWaits = welcomeFinishedThisLaunch() || firstChat;
@@ -213,7 +213,7 @@ export function AppNotices({ quiet = false, viewer = null, now = Date.now }: { q
   const grokNow = !grokDue ? false
     : !viewer || (desktop && !desktopState) || organization === null || firstChat === null || mausBotFirst || moving === null || grokLanding || grokBlocked ? null : true;
   // Everyone, whether or not a bot has answered yet (so not `afterWelcome`, which holds until one has), but never in the launch
-  // the welcome or MausBot's card took, or during a live call.
+  // the welcome or BotHub's card took, or during a live call.
   const modelgoNow = !modelgoHere || moving || welcomeFinishedThisLaunch() || launchDialogShown() === "mausbot" || desktopState?.seen.includes(MODELGO_OFFER_NOTICE) ? false
     : organization === null || moving === null || firstChat === null || mausBotFirst || (state.liveCall && state.liveCall.status !== "ended") || (desktop && !desktopState) ? null : true;
   // A card from the project's announcements file: the built-in sponsor card's exclusions, and src/lib/announcements.ts's rules for
@@ -230,7 +230,7 @@ export function AppNotices({ quiet = false, viewer = null, now = Date.now }: { q
   });
   const announcement = picked && picked !== "wait" ? picked : null;
   // Teams: everyone once, ahead of every other notice, on every page but a branded build's or an organization's desktop;
-  // as the What's new popup, never in the launch a welcome or MausBot's card took, before a first reply, over a first
+  // as the What's new popup, never in the launch a welcome or BotHub's card took, before a first reply, over a first
   // run's own screens or another dialog, during a live call or a move.
   const teamsSeen = noticeSeen(record, TEAMS_NOTICE) || Boolean(desktopState?.seen.includes(TEAMS_NOTICE));
   const teamsHere = !branded && organization !== true && !teamsSeen;
@@ -253,7 +253,7 @@ export function AppNotices({ quiet = false, viewer = null, now = Date.now }: { q
     [TEAMS_NOTICE]: teamsNow,
     [GROK_MOVE_NOTICE]: grokNow,
     [PHONE_UPDATE_NOTICE]: phoneNow,
-    // As the What's new popup: never in the launch whose welcome just finished, nor over MausBot's first-launch card.
+    // As the What's new popup: never in the launch whose welcome just finished, nor over BotHub's first-launch card.
     [SIMPLE_MODE_NOTICE]: !simpleDue || afterWelcome === true ? false : afterWelcome === null || mausBotFirst || simpleBlocked ? null : true,
     [WHATS_NEW_NOTICE]: whatsNewDue === false || whatsNewState === "none" || moving || afterWelcome === true ? false
       : whatsNewDue === null || whatsNewState === "loading" || !viewer || afterWelcome === null || mausBotFirst || moving === null || whatsNewBlocked ? null : true,
@@ -277,7 +277,7 @@ export function AppNotices({ quiet = false, viewer = null, now = Date.now }: { q
   useEffect(() => {
     if (!shownKey || !notice) return;
     markLaunchNotice(notice);
-    // The popups and the question own this launch: MausBot's first-launch card waits for a later one.
+    // The popups and the question own this launch: BotHub's first-launch card waits for a later one.
     if (shownKey === TEAMS_NOTICE || shownKey === GROK_MOVE_NOTICE || shownKey === SIMPLE_MODE_NOTICE || shownKey === WHATS_NEW_NOTICE || shownKey === UPDATES_CONSENT_NOTICE) markLaunchDialog("notices");
     if (shownKey === CLOUD_INTRO) {
       setIntroOpen(true);

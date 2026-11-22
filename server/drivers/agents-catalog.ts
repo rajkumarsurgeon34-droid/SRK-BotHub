@@ -105,7 +105,7 @@ const TRIGGER_FIELDS_SCHEMA = {
   same_conversation: { type: "boolean", description: "app_event, webhook or schedule: each run continues the last run's conversation." },
   continuity: { type: "boolean", description: "Schedules: each run gets the last run's report." },
   overlap: { type: "string", enum: ["skip", "queue"], description: "Schedules: while a run works, skip (default) or queue one." },
-  run_on_startup: { type: "boolean", description: "Repeating schedules: also run when OpenMausBot starts." },
+  run_on_startup: { type: "boolean", description: "Repeating schedules: also run when SRK BotHub starts." },
 } as const;
 
 /** What the engine keeps of a brief: it clips a longer one instead of refusing the call. */
@@ -212,7 +212,7 @@ const TOOL_DEFINITIONS = [
   {
     name: "select_computer",
     description:
-      "Choose where this conversation does computer work. Call with no arguments to inspect actual available choices and the current place. For a task needing computer interaction, select the requested place, or auto to choose a suitable configured computer without asking the user to use menus. OpenMausBot reuses an existing computer first; with a configured provider it can start or provision one when needed. Do not provision for ordinary chat or just to inspect availability. A pending result means end this turn immediately: OpenMausBot updates the conversation selector and resumes the original request with that computer's real tools. Do not use the old tools after requesting a switch, repeat the task, or claim the action is done. This cannot change permissions, override Off, or switch a teammate/routine/channel.",
+      "Choose where this conversation does computer work. Call with no arguments to inspect actual available choices and the current place. For a task needing computer interaction, select the requested place, or auto to choose a suitable configured computer without asking the user to use menus. SRK BotHub reuses an existing computer first; with a configured provider it can start or provision one when needed. Do not provision for ordinary chat or just to inspect availability. A pending result means end this turn immediately: SRK BotHub updates the conversation selector and resumes the original request with that computer's real tools. Do not use the old tools after requesting a switch, repeat the task, or claim the action is done. This cannot change permissions, override Off, or switch a teammate/routine/channel.",
     inputSchema: { type: "object", additionalProperties: false, properties: {
       surface: { type: "string", enum: ["auto", "cloud", "vm", "local", "browser"],
         description: "auto = suitable configured computer, cloud = the bot's cloud computer or self-hosted VPS, vm = isolated Local VM, local = user's own desktop, browser = built-in browser. Omit to list." },
@@ -450,7 +450,7 @@ const TOOL_DEFINITIONS = [
   {
     name: "request_credential",
     description:
-      "Ask the person for a secret on a secure card in the app or a QR-paired phone, never in chat. credential_id: a key OpenMausBot keeps (onePasswordToken: a 1Password service account token; email: a mailbox on any mail host, one card for its address and password, or for its outgoing server when it is connected but can't send). Other secrets: label, reason, delivery (a saved one returns at once). You never see the value; end the turn, and you resume when they save or decline.",
+      "Ask the person for a secret on a secure card in the app or a QR-paired phone, never in chat. credential_id: a key SRK BotHub keeps (onePasswordToken: a 1Password service account token; email: a mailbox on any mail host, one card for its address and password, or for its outgoing server when it is connected but can't send). Other secrets: label, reason, delivery (a saved one returns at once). You never see the value; end the turn, and you resume when they save or decline.",
     inputSchema: {
       type: "object",
       properties: {
@@ -490,7 +490,7 @@ const TOOL_DEFINITIONS = [
   {
     name: "fill_login",
     description:
-      "Sign in with a login the person saved in OpenMausBot or in their connected 1Password. Call it on the login page open in your browser: OpenMausBot types the username, password and any one-time code itself (also one emailed to a connected mailbox), submits each step, and says where the page went; you never see them. A login fills on its own site, such as any page of example.com. With no saved login for the site, sign in another way the person allowed, or call request_sign_in.",
+      "Sign in with a login the person saved in SRK BotHub or in their connected 1Password. Call it on the login page open in your browser: SRK BotHub types the username, password and any one-time code itself (also one emailed to a connected mailbox), submits each step, and says where the page went; you never see them. A login fills on its own site, such as any page of example.com. With no saved login for the site, sign in another way the person allowed, or call request_sign_in.",
     inputSchema: {
       type: "object",
       additionalProperties: false,

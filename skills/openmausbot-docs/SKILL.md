@@ -1,9 +1,9 @@
 ---
 name: openmausbot-docs
-description: "Answer how OpenMausBot itself works and how to change it: settings, the data folder, approval levels, routines, engines, skills, teams, memory and self-hosting. Use when the question is about the app, not about the person's own project."
+description: "Answer how SRK BotHub itself works and how to change it: settings, the data folder, approval levels, routines, engines, skills, teams, memory and self-hosting. Use when the question is about the app, not about the person's own project."
 ---
 
-# OpenMausBot, documented
+# SRK BotHub, documented
 
 Answer from this install and from the app's own docs, in that order. Never
 describe a setting from memory: read the setting, the file, or the page.
@@ -21,7 +21,7 @@ describe a setting from memory: read the setting, the file, or the page.
   check the value the running process actually loaded, and after a restart for
   what is read at boot: reading the file back alone proves nothing.
 - **The docs.** One page per area: in a repo checkout under `docs/`, otherwise
-  at `https://github.com/milind-soni/OpenMausBot/blob/main/docs/<page>.md`. A
+  at `https://github.com/rajkumarsurgeon34-droid/SRK-BotHub/blob/main/docs/<page>.md`. A
   page explains why something is built that way and what happens if.
 - When the two disagree the app wins, and say which one you checked. When
   neither has the setting, say it does not exist instead of inventing a name.

@@ -91,7 +91,7 @@ linuxBox("the box plan", () => {
     expect(text).not.toContain("--new-session");
   });
 
-  it("puts the engines OpenMausBot installed back whole and read-only, whatever else the turn may write", () => {
+  it("puts the engines SRK BotHub installed back whole and read-only, whatever else the turn may write", () => {
     // npm's bin entries are relative links into the prefix: `bin/opencode -> ../lib/node_modules/opencode-ai/bin/opencode.exe`.
     const prefix = join(dataDir, "tools", "npm");
     const engineFiles = [`${prefix}/bin/opencode`, `${prefix}/lib/node_modules/opencode-ai/bin/opencode.exe`, `${prefix}/bin/codex`,
@@ -176,7 +176,7 @@ linuxBox("the box plan", () => {
     expect(visibleInBox(plan, join(dataDir, "providers", "key"))).toBe("none");
   });
 
-  it("MausBot's own Pi agent folder (PI_CODING_AGENT_DIR) goes back read-write, and no other instance's", () => {
+  it("BotHub's own Pi agent folder (PI_CODING_AGENT_DIR) goes back read-write, and no other instance's", () => {
     const own = join(dataDir, "providers", "pi-own", "a".repeat(64), "agent");
     const plan = planBox(setup(), { command: "/usr/bin/pi", args: ["--mode", "rpc"], cwd, env: { HOME: home, PI_CODING_AGENT_DIR: own } });
     expect(visibleInBox(plan, join(own, "models.json"))).toBe("rw");
@@ -261,7 +261,7 @@ linuxBox("the box plan", () => {
       }
     }
     expect(visibleInBox(ask({ XDG_CACHE_HOME: join(dataDir, "workspaces", "b", "cache") }, true), join(dataDir, "workspaces", "b", "cache", "x"))).toBe("rw");
-    // An engine OpenMausBot starts keeps the home it was given there.
+    // An engine SRK BotHub starts keeps the home it was given there.
     expect(visibleInBox(ask({ CODEX_HOME: join(dataDir, "providers", "codex-1") }, false), join(dataDir, "providers", "codex-1", "auth.json"))).toBe("rw");
   });
 

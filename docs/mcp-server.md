@@ -1,6 +1,6 @@
-# OpenMausBot MCP server
+# SRK BotHub MCP server
 
-The OpenMausBot desktop app includes a local stdio MCP server. It lets another MCP client coordinate your
+The SRK BotHub desktop app includes a local stdio MCP server. It lets another MCP client coordinate your
 OpenMausBot team while the desktop app and its harness are running.
 
 ## What it can do
@@ -32,7 +32,7 @@ The same operations are also commands of their own, for scripts and CI:
 
 ## From a source checkout
 
-Start OpenMausBot, then configure the MCP client to run:
+Start SRK BotHub, then configure the MCP client to run:
 
 ```json
 {
@@ -52,7 +52,7 @@ loopback without one. A hosted or shared server with service loopback trust
 session for almost every tool, reads included. To authorize an external MCP
 client:
 
-1. In OpenMausBot, open **Settings → Phone & devices**, press **Pair** and
+1. In SRK BotHub, open **Settings → Phone & devices**, press **Pair** and
    reveal the one-time pairing code (keep the access at everything for tools
    that change settings).
 2. Exchange it locally (remove spaces from the displayed code):
@@ -90,25 +90,25 @@ macOS example:
 {
   "mcpServers": {
     "openmausbot": {
-      "command": "/Applications/OpenMausBot.app/Contents/MacOS/OpenMausBot",
-      "args": ["/Applications/OpenMausBot.app/Contents/Resources/server/mcp-server.js"],
+      "command": "/Applications/BotHub.app/Contents/MacOS/BotHub",
+      "args": ["/Applications/BotHub.app/Contents/Resources/server/mcp-server.js"],
       "env": { "ELECTRON_RUN_AS_NODE": "1" }
     }
   }
 }
 ```
 
-On Windows, use the installed `OpenMausBot.exe` as `command`, the adjacent
+On Windows, use the installed `BotHub.exe` as `command`, the adjacent
 `resources\\server\\mcp-server.js` as the argument, and the same `ELECTRON_RUN_AS_NODE=1` environment value.
-The usual per-user install is under `%LOCALAPPDATA%\\Programs\\OpenMausBot`.
+The usual per-user install is under `%LOCALAPPDATA%\\Programs\\SRK BotHub`.
 
-On Ubuntu `.deb` installs, the executable is normally `/opt/OpenMausBot/openmausbot` and the script is
-`/opt/OpenMausBot/resources/server/mcp-server.js`. Use the same environment value.
+On Ubuntu `.deb` installs, the executable is normally `/opt/BotHub/openmausbot` and the script is
+`/opt/BotHub/resources/server/mcp-server.js`. Use the same environment value.
 
 ## Connection discovery
 
-With no configuration, the MCP process probes OpenMausBot's three desktop ports (`8799`, `18799`, and `28799`)
-and accepts only a health response that identifies itself as OpenMausBot. This handles the desktop's normal
+With no configuration, the MCP process probes SRK BotHub's three desktop ports (`8799`, `18799`, and `28799`)
+and accepts only a health response that identifies itself as SRK BotHub. This handles the desktop's normal
 fallback when another local process already owns port 8799.
 
 Set `OMB_PORT` to force one local port, or `OPENMAUSBOT_URL` to use an explicit HTTP(S) origin. Plain HTTP is

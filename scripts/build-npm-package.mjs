@@ -45,7 +45,7 @@ writeFileSync(
     {
       name: "openmausbot",
       version: app.version,
-      description: "Run the OpenMausBot server anywhere and pair your devices to it",
+      description: "Run the SRK BotHub server anywhere and pair your devices to it",
       license: "Apache-2.0",
       type: "module",
       bin: { openmausbot: "cli.js" },
@@ -99,7 +99,7 @@ Tailscale must already be installed and signed in on both devices.
 
 After the HTTPS connection is checked, scan the QR with your phone. When
 you pair an Android phone the QR is an app link, so scan it inside the
-OpenMausBot app; the web address is printed beside it if you would rather
+SRK BotHub app; the web address is printed beside it if you would rather
 use a browser. On iPhone or iPad, scan with Camera for Safari, or use the
 app's own scanner. Choose Connect on the phone; scanning alone is not a
 completed pairing. Codes
@@ -107,7 +107,7 @@ are private, single-use, and expire after five minutes. Guided phone
 access permits chat and approvals, not settings or pairing administration.
 Localhost and a bare LAN address cannot connect your phone to this server.
 
-Later launches reuse your saved choices and open OpenMausBot on this computer.
+Later launches reuse your saved choices and open SRK BotHub on this computer.
 Keep the terminal open: this is a foreground server, not a background
 service. Ctrl-C stops the server without deleting saved work. Automatic
 browser opening uses only the local address; it is skipped for SSH and
@@ -158,9 +158,9 @@ openmausbot run "Room Lead" "Rehearse the launch of https://example.com" --expor
 openmausbot help run       # every verb: doctor, run, wait, send, export, events, team, engine, connect, mcp
 \`\`\`
 
-[Setup guide](https://github.com/milind-soni/OpenMausBot/blob/main/docs/cli-onboarding.md)
-· [Scripts and CI](https://github.com/milind-soni/OpenMausBot/blob/main/docs/headless-cli.md)
-· [Hosting guide](https://github.com/milind-soni/OpenMausBot/blob/main/docs/self-hosting.md)
+[Setup guide](https://github.com/rajkumarsurgeon34-droid/SRK-BotHub/blob/main/docs/cli-onboarding.md)
+· [Scripts and CI](https://github.com/rajkumarsurgeon34-droid/SRK-BotHub/blob/main/docs/headless-cli.md)
+· [Hosting guide](https://github.com/rajkumarsurgeon34-droid/SRK-BotHub/blob/main/docs/self-hosting.md)
 `,
 );
 console.log(`npm package assembled at ${out} (openmausbot@${app.version})`);

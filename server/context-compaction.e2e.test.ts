@@ -77,7 +77,7 @@ async function setup(hang: boolean, fakeEnv: NodeJS.ProcessEnv) {
 }
 
 /** Account environment is a persisted config setting, not writable through the public config patch: this changes only
- * the stopped fixture's own config. With DISABLE_COMPACT, Claude Code has no compaction and a summary is OpenMausBot's fold. */
+ * the stopped fixture's own config. With DISABLE_COMPACT, Claude Code has no compaction and a summary is SRK BotHub's fold. */
 const claudeEnvironment = (f: Awaited<ReturnType<typeof setup>>, values: Record<string, string>) => f.restart(() => {
   const path = join(f.session.info.dataDir, "config.json");
   const config = JSON.parse(readFileSync(path, "utf8"));

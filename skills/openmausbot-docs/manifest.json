@@ -1,8 +1,8 @@
 {
   "id": "openmausbot-docs",
-  "name": "OpenMausBot Docs",
+  "name": "SRK BotHub Docs",
   "version": "0.1.0",
-  "description": "Answer how OpenMausBot itself is configured, from this install's files and the app's own docs.",
+  "description": "Answer how SRK BotHub itself is configured, from this install's files and the app's own docs.",
   "defaultEnabled": true,
   "triggerTerms": [
     "openmausbot",
@@ -25,7 +25,13 @@
     "bots on my second computer",
     "bots on my other computer",
     "bots on more than one computer",
-    "bots on my phone"
+    "bots on my phone",
+    "srk bothub",
+    "bothub settings",
+    "bothub config",
+    "bothub 设置",
+    "bothub 配置",
+    "open bothub"
   ],
   "requiredCapabilities": []
 }

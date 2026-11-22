@@ -489,7 +489,7 @@ export function openMausOwnsWorkingFolder(cwd: string): boolean {
     withinFolder(cwd, root) && resolvePath(cwd) !== resolvePath(root));
 }
 
-/** OpenMaus folders an OpenCode bot may use without an approval card: attachments and its own shared folder.
+/** SRK BotHub folders an OpenCode bot may use without an approval card: attachments and its own shared folder.
  * Never one at or above the working folder: OpenCode reads opencode.json, .opencode/ and AGENTS.md from
  * every folder above it, so a planted file would configure later conversations. Known risk: the folder
  * rule covers writes too, so a bot can change or delete files in the attachments folder. */

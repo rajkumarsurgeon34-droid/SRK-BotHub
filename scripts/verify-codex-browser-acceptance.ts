@@ -1,4 +1,4 @@
-// Real model acceptance through the full, isolated OpenMausBot server.
+// Real model acceptance through the full, isolated SRK BotHub server.
 // The prompts contain goals only, never tool names or execution advice.
 import { copyFileSync, mkdirSync, writeFileSync, unlinkSync } from "node:fs";
 import { join, resolve } from "node:path";
@@ -108,7 +108,7 @@ try {
       const tabs = entry.browser.observations.filter((item: any) => item.kind === "tabs").at(-1)?.tabs ?? [];
       entry.verified = entry.wait?.status === "settled" && tabs.some((tab: any) => tab.active && (index === 0
         ? /^https:\/\/(?:calendar\.google\.com\/|accounts\.google\.com\/.*calendar\.google\.com|workspace\.google\.com\/(?:intl\/[a-z-]+\/)?products\/calendar\/)/.test(tab.url)
-        : tab.url === "https://github.com/milind-soni/OpenMausBot"));
+        : tab.url === "https://github.com/rajkumarsurgeon34-droid/SRK-BotHub"));
       save();
       console.log(JSON.stringify({ model, index, status: entry.wait?.status, browser: entry.browser }));
       if (entry.wait?.status !== "settled") break;

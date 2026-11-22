@@ -1,4 +1,4 @@
-# Using OpenMausBot on more than one device
+# Using SRK BotHub on more than one device
 
 This page is for a person with two or more computers, or a computer and a phone, who wants the same bots everywhere.
 It says what each device keeps, what does and does not travel between them, the ways to use one set of bots from every
@@ -6,7 +6,7 @@ device, and what to check when a device looks empty.
 
 ## What each device keeps
 
-The desktop app runs a full OpenMausBot on the computer it is installed on. Until you choose another home (below), that
+The desktop app runs a full SRK BotHub on the computer it is installed on. Until you choose another home (below), that
 computer is the bots' **home**: their conversations, memory, skills, routines, connected apps and keys are stored
 there, and its routines run there.
 

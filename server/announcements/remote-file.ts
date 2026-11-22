@@ -163,7 +163,7 @@ export class RemoteJsonFile<T> {
     const timer = setTimeout(() => controller.abort(), this.options.timeoutMs ?? REMOTE_FILE_FETCH_TIMEOUT_MS);
     try {
       const response = await (this.options.fetch ?? fetch)(this.spec.url, {
-        headers: { accept: "application/json", "user-agent": "OpenMausBot" },
+        headers: { accept: "application/json", "user-agent": "SRK-BotHub" },
         // Nothing of the person's goes with it.
         credentials: "omit",
         referrerPolicy: "no-referrer",

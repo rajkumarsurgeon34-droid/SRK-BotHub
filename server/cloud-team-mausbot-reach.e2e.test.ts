@@ -1,7 +1,7 @@
-// A person's own MausBot hands work to the team's shared bots, on a Team Cloud with the synthetic Claude CLI. Mira (a
-// User) asks her MausBot; the work runs in Sales' own private chat with her, at her level, and its result comes back whole
+// A person's own BotHub hands work to the team's shared bots, on a Team Cloud with the synthetic Claude CLI. Mira (a
+// User) asks her BotHub; the work runs in Sales' own private chat with her, at her level, and its result comes back whole
 // to her private chat. Ben (a User) and Ada (an Admin) see none of it: not by id, not in lists, counts, search,
-// notifications, streams, Sales' shared chat or its notes. A bot Mira cannot see is never named to her MausBot, a bot she
+// notifications, streams, Sales' shared chat or its notes. A bot Mira cannot see is never named to her BotHub, a bot she
 // can only view refuses work, and a turn her own request isn't behind hands nothing on. The engine plays a script through
 // the real agents tools, so this proves the routes and what each person can see, not a model's judgement.
 import { randomBytes } from "node:crypto";
@@ -95,7 +95,7 @@ beforeAll(async () => {
   await share(archive, { everyone: "view", people: {} });
   await share(payroll, { everyone: "none", people: { [BEN.email]: "chat" } });
   mausbot = (await botsOf(mira)).find((bot) => bot.defaultBot?.person === MIRA.email)!;
-  expect(mausbot, "every member has their own MausBot").toBeDefined();
+  expect(mausbot, "every member has their own BotHub").toBeDefined();
   const chat = await team.as(mira, "POST", `/api/bots/${mausbot.id}/tasks`, { title: "Mine" });
   expect(chat.status, JSON.stringify(chat.body)).toBe(201);
   mine = chat.body.task.threadId as string;
@@ -232,7 +232,7 @@ it("never into a room, nor into Sales' shared chat", async () => {
   expect(JSON.stringify(await lines(ada, sales.threadId))).not.toContain("pull the numbers for Mira");
 }, hostTimeout(120_000));
 
-it("works from her MausBot's main chat too, which is hers alone", async () => {
+it("works from her BotHub's main chat too, which is hers alone", async () => {
   const main = (await botsOf(mira)).find((bot) => bot.id === mausbot.id)!.mainThreadId;
   expect(main).toBeTruthy();
   await say("FROM-MY-MAIN-CHAT", main);

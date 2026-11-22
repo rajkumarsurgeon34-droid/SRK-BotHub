@@ -2,7 +2,7 @@
   "id": "phone-connection",
   "name": "Phone Connection Help",
   "version": "1.0.0",
-  "description": "Why the MausBot phone app can't reach the person's computer, and what fixes it.",
+  "description": "Why the BotHub phone app can't reach the person's computer, and what fixes it.",
   "defaultEnabled": true,
   "triggerTerms": [
     "no route to your computer",
@@ -33,7 +33,10 @@
     "pair my phone",
     "pair the phone",
     "phone & devices",
-    "phone and devices"
+    "phone and devices",
+    "anywhere, through bothub",
+    "anywhere through bothub",
+    "bothub app on my phone"
   ],
   "requiredCapabilities": []
 }

@@ -218,7 +218,7 @@
         {
           "title": "Getting started",
           "items": [
-            "**Claude, ChatGPT and OpenCode are all first choices** when you set up MausBot, on desktop and in the Cloud welcome. OpenCode installs in one click and has free models that need no account.",
+            "**Claude, ChatGPT and OpenCode are all first choices** when you set up BotHub, on desktop and in the Cloud welcome. OpenCode installs in one click and has free models that need no account.",
             "**The Teams popup links to Team plans,** and everyone sees it once more."
           ]
         },
@@ -619,7 +619,7 @@
           "title": "Bots can change app settings for you",
           "items": [
             "**Ask a bot to change a setting and it does it,** with an **Undo** in the chat.",
-            "**You can make MausBot a regular bot** if you don't want it as your helper."
+            "**You can make BotHub a regular bot** if you don't want it as your helper."
           ]
         },
         {
@@ -696,7 +696,7 @@
         {
           "title": "Cloud computers",
           "items": [
-            "**A cloud computer that stops answering is no longer shown as ready.** MausBot restarts it once when that is safe, tells you and the bot plainly, and the computer panel has **Restart computer** and **Replace computer**.",
+            "**A cloud computer that stops answering is no longer shown as ready.** BotHub restarts it once when that is safe, tells you and the bot plainly, and the computer panel has **Restart computer** and **Replace computer**.",
             "**A cloud computer that fails to start can be reset** from the same panel.",
             "**A lent computer's menu names the bot using it.**"
           ]
@@ -791,8 +791,8 @@
         {
           "title": "Pairing a phone is clearer",
           "items": [
-            "**Only the pairing code is a QR code now.** The desktop app no longer shows store codes or download links: install MausBot from the App Store or Google Play, then pair.",
-            "**The pairing screen says what to scan with:** open MausBot on your phone and scan the code from inside the app.",
+            "**Only the pairing code is a QR code now.** The desktop app no longer shows store codes or download links: install BotHub from the App Store or Google Play, then pair.",
+            "**The pairing screen says what to scan with:** open BotHub on your phone and scan the code from inside the app.",
             "**A paired phone can delete a bot.**"
           ]
         },
@@ -856,7 +856,7 @@
         {
           "title": "Models and engines",
           "items": [
-            "**Ollama, found for you.** MausBot finds Ollama running on your computer and adds it in one click, shows the models you've pulled, and lets you turn a model's thinking off or pick its level.",
+            "**Ollama, found for you.** BotHub finds Ollama running on your computer and adds it in one click, shows the models you've pulled, and lets you turn a model's thinking off or pick its level.",
             "**Reasoning levels for OpenAI and OpenRouter API models.**",
             "**Star a model** to keep it at the top of its provider.",
             "**Amazon Bedrock** as a way to run Claude.",
@@ -876,7 +876,7 @@
           "title": "Phones",
           "items": [
             "**A clear notice when an older phone app stops connecting away from Wi-Fi.** Update the app on your phone, then open it once on the same Wi-Fi as your computer. Phone & devices has a **Pair again** button if you need it, and your bots now give the same answer.",
-            "**Self-hosted servers can pair a phone through MausBot's relay,** with no domain or open port. Start the server with `--relay`. It is new: tell us how it goes."
+            "**Self-hosted servers can pair a phone through BotHub's relay,** with no domain or open port. Start the server with `--relay`. It is new: tell us how it goes."
           ]
         },
         {
@@ -918,7 +918,7 @@
           "title": "Other",
           "items": [
             "**The ModelGo card** now shows on your first launch of this version if you haven't seen it.",
-            "**MausBot can tell you about news with a card,** without an app update. Set `OMB_DISABLE_ANNOUNCEMENTS=1` to turn it off.",
+            "**BotHub can tell you about news with a card,** without an app update. Set `OMB_DISABLE_ANNOUNCEMENTS=1` to turn it off.",
             "**Traditional Chinese** is fully translated."
           ]
         },
@@ -954,7 +954,7 @@
         {
           "title": "ModelGo",
           "items": [
-            "**ModelGo is a new AI provider.** Add a ModelGo API key in Settings and pick from the models your key offers. ModelGo sponsors MausBot, and you'll see a one-time card about it."
+            "**ModelGo is a new AI provider.** Add a ModelGo API key in Settings and pick from the models your key offers. ModelGo sponsors BotHub, and you'll see a one-time card about it."
           ]
         },
         {
@@ -1045,7 +1045,7 @@
         {
           "title": "Clouds finish restores and stay responsive",
           "items": [
-            "**A restore on My Cloud finishes by itself.** Restoring a backup, or moving this computer's workspace to My Cloud, used to wait on \"Fully quit MausBot…\", which a Cloud can't do. My Cloud now restarts its own server right after the restore and shows progress while it comes back.",
+            "**A restore on My Cloud finishes by itself.** Restoring a backup, or moving this computer's workspace to My Cloud, used to wait on \"Fully quit BotHub…\", which a Cloud can't do. My Cloud now restarts its own server right after the restore and shows progress while it comes back.",
             "**The turn queue stays fast when many bots wait.** Checking who goes next takes time in proportion to the number waiting, not its square, so a busy Cloud keeps answering.",
             "**A Claude turn is never sent twice** once one of its model calls has answered.",
             "**Routines save a run's progress once per window,** not after every step, so long runs write far less.",

@@ -2,7 +2,7 @@
 
 A message sent while a Grok turn runs is taken into that turn instead of
 waiting for it to end, once Grok's own config has `follow_up_behavior = "steer"`.
-OpenMausBot adds the line itself, for a signed-in Grok, when a turn starts. A
+SRK BotHub adds the line itself, for a signed-in Grok, when a turn starts. A
 `follow_up_behavior` the person already set, `"queue"` included, is left alone.
 
 ## What Grok does (grok 1.0.89, 2026-11-19)

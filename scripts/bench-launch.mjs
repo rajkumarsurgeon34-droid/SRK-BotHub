@@ -55,7 +55,7 @@ function stage() {
   mkdirSync(join(appDir, "src", "locales"), { recursive: true });
   for (const file of readdirSync(join(appRoot, "src", "locales"))) if (file.endsWith(".json") && file !== "source-hashes.json") cpSync(join(appRoot, "src", "locales", file), join(appDir, "src", "locales", file));
   const manifest = JSON.parse(readFileSync(join(appRoot, "package.json"), "utf8"));
-  writeFileSync(join(appDir, "package.json"), JSON.stringify({ name: "openmausbot-bench-launch", productName: "OpenMausBot Bench", version: manifest.version, type: "module", main: "bench-launch-entry.mjs" }));
+  writeFileSync(join(appDir, "package.json"), JSON.stringify({ name: "openmausbot-bench-launch", productName: "SRK BotHub Bench", version: manifest.version, type: "module", main: "bench-launch-entry.mjs" }));
   cpSync(join(HERE, "testing", "bench-launch-entry.mjs"), join(appDir, "bench-launch-entry.mjs"));
   // The installed app owns the real ports; a measured launch never knocks on them.
   const portsFile = join(appDir, "electron", "desktop-ports.mjs");

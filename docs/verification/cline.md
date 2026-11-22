@@ -1,7 +1,7 @@
 # Cline engine
 
 Install the standalone Cline CLI (`npm install -g cline`) and sign in with
-`cline auth` in a terminal; OpenMausBot reads that saved login and has no sign-in
+`cline auth` in a terminal; SRK BotHub reads that saved login and has no sign-in
 of its own. The picker offers **Cline default (configured)** plus Cline's
 ClinePass and free models, read from Cline's public recommended-models list
 (a bundled list when it can't be reached). A tier model switches the session's `provider` option to `cline-pass` or
@@ -17,7 +17,7 @@ the selected API key in `CLINE_API_KEY` for saved API providers; OAuth login
 and refresh remain Cline's responsibility. A saved custom model is pinned
 over ACP before the prompt so it cannot silently become a catalog fallback.
 
-Permissions always go through OpenMausBot's ACP approval broker, including
+Permissions always go through SRK BotHub's ACP approval broker, including
 Full Access. Cline's terminal auto-approval default is explicitly disabled.
 MCP tools use the existing scoped integration gate. Native tool selection is
 not advertised: removing native tools from a bot's allowlist is refused.

@@ -5,7 +5,9 @@ This product is a modified copy of the open-source edition of OpenMausBot
 (https://github.com/milind-soni/OpenMausBot, commit 87d8a797d), licensed under
 the Apache License, Version 2.0. Modifications: removed the enterprise/ folder
 (separately licensed, not redistributable), the GitHub release/publishing
-workflows, and large demo media under docs/; README rebranded.
+workflows, and large demo media under docs/; rebranded the app as SRK BotHub
+(product name, default bot name, on-screen text in all languages, icons, default
+mascot shape, update source); README rebranded.
 
 ----- Original NOTICE follows -----
 

@@ -62,7 +62,7 @@ export interface ConfigStatus {
   newBots?: { effort?: EffortLevel };
   /** This Cloud is on the Starter plan, as the Admin last said; absent or false otherwise. */
   cloudStarter?: boolean;
-  /** The most bots this Cloud's plan makes, its MausBot aside. Sent only by servers that capped Starter's bots; absent otherwise. */
+  /** The most bots this Cloud's plan makes, its BotHub aside. Sent only by servers that capped Starter's bots; absent otherwise. */
   botLimit?: number;
   /** A task on this Cloud is waiting for memory right now. */
   waitingForRoom?: boolean;
@@ -221,7 +221,7 @@ export interface BrowserEngineSummary {
   myChromeOn?: { name: string; device: "PC" | "Mac" | "computer"; online: boolean };
   /** On My Cloud with no computer lending Chrome: it can be lent from the desktop app. */
   myChromeLendable?: true;
-  /** browserEngine.engine: "chrome" when the bots' browsers run on OpenMausBot's own Chrome driver. */
+  /** browserEngine.engine: "chrome" when the bots' browsers run on SRK BotHub's own Chrome driver. */
   engine?: "agent-browser" | "chrome";
   /** The desktop app shows the Chrome engine's browsers as panes the person uses directly (browserEngine.surface "pane"). */
   pane?: true;

@@ -1293,13 +1293,13 @@ describe("bidi: message content carries its own direction", () => {
   it("goes with the script that has more words, so an Arabic answer opening on a Latin name stays right-to-left", () => {
     expect(textDirection("Chrome 158 هو الإصدار الأحدث من المتصفح")).toBe("rtl");
     expect(textDirection("Node.js بيئة تشغيل لجافاسكريبت على الخادم")).toBe("rtl");
-    expect(textDirection("OpenMausBot v0.1.169 صدر في 2026-11-18 مع إصلاحات كثيرة")).toBe("rtl");
+    expect(textDirection("SRK BotHub v0.1.169 صدر في 2026-11-18 مع إصلاحات كثيرة")).toBe("rtl");
     expect(textDirection("The Arabic word مرحبا means hello")).toBe("ltr");
     expect(textDirection("שלום is how you say hello in Hebrew, among other things")).toBe("ltr");
   });
 
   it("does not count a bare address, which is Latin in any language", () => {
-    expect(textDirection("راجع https://github.com/milind-soni/OpenMausBot/issues/6541 للتفاصيل")).toBe("rtl");
+    expect(textDirection("راجع https://github.com/rajkumarsurgeon34-droid/SRK-BotHub/issues/6541 للتفاصيل")).toBe("rtl");
     expect(textDirection("https://openmausbot.com/download هو رابط التحميل الرسمي")).toBe("rtl");
     expect(textDirection("انظر www.example.com/a/very/long/path/to/the/release/notes هنا")).toBe("rtl");
     expect(textDirection("https://example.com/page")).toBe("ltr");

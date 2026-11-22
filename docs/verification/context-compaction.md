@@ -3,7 +3,7 @@
 ## Who compacts
 
 An engine that keeps its own session and compacts it (Claude Code, Codex:
-`nativeCompaction` in the driver's capabilities) is left to do so. OpenMausBot
+`nativeCompaction` in the driver's capabilities) is left to do so. SRK BotHub
 does not summarize such a conversation before a turn, does not replace its
 session, and shows the engine's compaction as a note in the chat when the
 engine reports it (Claude Code's `compact_boundary`, Codex's
@@ -11,9 +11,9 @@ engine reports it (Claude Code's `compact_boundary`, Codex's
 Code that is its own `/compact` on a fork of the session, as for a warm
 summary below, and the conversation moves to that fork.
 
-OpenMausBot's own fold (below) is what compacts in every other case:
+SRK BotHub's own fold (below) is what compacts in every other case:
 
-- an engine with no compaction of its own that OpenMausBot is told of (the API
+- an engine with no compaction of its own that SRK BotHub is told of (the API
   models, Pi, Muse Code, ACP agents);
 - a session its engine left uncompacted: the last measured prompt is within
   10,000 tokens or 5% (whichever is closer) of the model's window, or of
@@ -31,7 +31,7 @@ OpenMausBot's own fold (below) is what compacts in every other case:
 pnpm exec vitest run server/host/conversation-compaction.test.ts server/context-compaction.e2e.test.ts
 ```
 
-## OpenMausBot's fold
+## SRK BotHub's fold
 
 Long direct conversations can summarize older exchanges before the next turn.
 The full transcript, its branches and attachments are retained. The new session
@@ -80,7 +80,7 @@ the next turn starts small.
   would summarize anyway; a message sent meanwhile shows "context compaction
   started (auto)" and its turn starts when the summary is written (at most 3
   minutes, then the turn goes on without it). For an engine
-  OpenMausBot folds for, the fold runs while idle once the conversation is at
+  SRK BotHub folds for, the fold runs while idle once the conversation is at
   85% of the threshold its next turn would fold at.
 - **Claude Code:** `/compact` with instructions to keep the person's latest
   requests and every open question (open question cards are named), on a
@@ -95,7 +95,7 @@ the next turn starts small.
   existing "not seen yet" path, which is saved with the conversation.
 - **Shown in the chat:** the line "summarized this conversation while it was
   idle; the latest messages carry on word for word", in the language of the
-  conversation's person (`server.warmSummary.summarized`). OpenMausBot's fold
+  conversation's person (`server.warmSummary.summarized`). SRK BotHub's fold
   shows its usual summary note instead.
 - **A turn that starts meanwhile wins:** the summary is abandoned and nothing
   changes. The exception is a turn that would summarize at its start anyway,

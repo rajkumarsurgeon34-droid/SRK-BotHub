@@ -1,4 +1,4 @@
-# OpenMausBot control plane
+# SRK BotHub control plane
 
 This directory is an isolated Cloudflare Worker for cloud account identity,
 installation ownership, and per-installation managed companion endpoints. It
@@ -664,9 +664,9 @@ the same Cloudflare user share its 1,200 requests per five minutes. On
 Workers Free, three accounts with `OMB_CLEANUP_SWEEP_LIMIT` 3 use the whole
 50-subrequest budget; a fourth needs the limit at 2.
 
-### MausBot Relay
+### BotHub Relay
 
-Phones reach a desktop through MausBot Relay, end-to-end encrypted: the relay passes sealed bytes and can't open them
+Phones reach a desktop through BotHub Relay, end-to-end encrypted: the relay passes sealed bytes and can't open them
 (`companion/src/e2e/README.md`). This Worker only lets a computer onto the relay. It mints a 12-hour host token signed
 with Ed25519; the relay holds only the public key and checks tokens offline, so it can't mint one itself.
 

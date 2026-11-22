@@ -74,7 +74,7 @@ const MAX_BOAT_INVENTORY_PAGES = 10;
 const LEGACY_MANAGED_BOAT_NAME = /^ogb-[a-z0-9]{1,8}-[a-f0-9]{6}$/;
 const SCOPED_MANAGED_BOAT_NAME = /^ogb-[a-f0-9]{12}-[a-z0-9]{1,8}-[a-f0-9]{6}$/; /** Set aside (boat-set-aside.ts): this installation's, no bot's. */ export const SET_ASIDE_BOAT_NAME = /^ogb-[a-f0-9]{12}-[a-z0-9]{1,8}-[a-f0-9]{6}-set-aside-\d{4}-\d{2}-\d{2}$/;
 const BOAT_ID = /^bx_[23456789abcdefghjkmnpqrstuvwxyz]{8}$/;
-/** Sandbox.state in v1, plus OpenMausBot's own `removing` for a sandbox whose deletion is under way. */
+/** Sandbox.state in v1, plus SRK BotHub's own `removing` for a sandbox whose deletion is under way. */
 const BOAT_STATES = new Set([
   "init", "provisioning", "provisioned", "cloning", "ready", "idle", "running", "archiving", "archived", "error", "cancelled", "removing",
 ]);
@@ -517,7 +517,7 @@ export async function listManagedBoats(
     try {
       recoveries = boatCreateRecoverySnapshot();
     } catch {
-      return invalidInventory("OpenMausBot could not safely read its cloud computer recovery records");
+      return invalidInventory("SRK BotHub could not safely read its cloud computer recovery records");
     }
     for (const recovery of recoveries) {
       if (!recovery.resolved || !recovery.boxId) continue;
@@ -531,7 +531,7 @@ export async function listManagedBoats(
       if (matchingRows.length === 1) {
         const listedName = typeof matchingRows[0]?.name === "string" ? matchingRows[0].name : "";
         if (listedName !== namedOwner.currentName && listedName !== namedOwner.legacyName) {
-          return invalidInventory("A remembered cloud computer no longer has its OpenMausBot owner name — repair it in boat.dev before continuing");
+          return invalidInventory("A remembered cloud computer no longer has its SRK BotHub owner name — repair it in boat.dev before continuing");
         }
         continue;
       }
@@ -549,7 +549,7 @@ export async function listManagedBoats(
         inspected.identity.name !== namedOwner.currentName
         && inspected.identity.name !== namedOwner.legacyName
       ) {
-        return invalidInventory("A remembered cloud computer no longer has its OpenMausBot owner name — repair it in boat.dev before continuing");
+        return invalidInventory("A remembered cloud computer no longer has its SRK BotHub owner name — repair it in boat.dev before continuing");
       }
       const directCandidate = {
         id: inspected.identity.boxId,
@@ -563,7 +563,7 @@ export async function listManagedBoats(
     try {
       deletions = boatDeletionSnapshot();
     } catch {
-      return invalidInventory("OpenMausBot could not safely read its cloud computer deletion records");
+      return invalidInventory("SRK BotHub could not safely read its cloud computer deletion records");
     }
     for (const deletion of deletions) {
       let state: BoatDeletionReconciliation;
@@ -629,7 +629,7 @@ export async function listManagedBoats(
     }
     const existing = ownedBoatByBot.get(owner.botId);
     if (existing && existing !== boxId) {
-      return invalidInventory("boat.dev returned conflicting cloud computers for one OpenMaus bot — repair them in boat.dev before continuing");
+      return invalidInventory("boat.dev returned conflicting cloud computers for one SRK BotHub bot — repair them in boat.dev before continuing");
     }
     ownedBoatByBot.set(owner.botId, boxId);
   }
@@ -663,7 +663,7 @@ export async function listManagedBoats(
       try {
         adoptResolvedBoat(owner.botId, boxId);
       } catch {
-        return invalidInventory("OpenMausBot could not safely remember this legacy cloud computer's owner — repair it in boat.dev before continuing");
+        return invalidInventory("SRK BotHub could not safely remember this legacy cloud computer's owner — repair it in boat.dev before continuing");
       }
     }
     seenBoatIds.add(boxId);

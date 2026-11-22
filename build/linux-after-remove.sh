@@ -16,7 +16,7 @@ if [ -n "${OPENMAUSBOT_POSTINSTALL_TEST_ROOT:-}" ]; then
   TEST_ROOT="$(realpath -e -- "$OPENMAUSBOT_POSTINSTALL_TEST_ROOT")"
   case "$TEST_ROOT" in
     /tmp/*) ;;
-    *) echo "OpenMausBot test install root must stay under /tmp" >&2; exit 1 ;;
+    *) echo "SRK BotHub test install root must stay under /tmp" >&2; exit 1 ;;
   esac
   APPARMOR_DIR=$TEST_ROOT/test-system/apparmor.d
   APPARMOR_PARSER=$TEST_ROOT/test-system/apparmor_parser
@@ -37,8 +37,8 @@ fi
 # update-alternatives fails on a link group that does not exist.
 if [ "$TEST_MODE" -eq 0 ] && [ "${1:-}" != 0 ]; then
   if command -v update-alternatives >/dev/null 2>&1; then
-    update-alternatives --remove openmausbot /opt/OpenMausBot/openmausbot
-  elif [ -L /usr/bin/openmausbot ] && [ "$(readlink /usr/bin/openmausbot)" = /opt/OpenMausBot/openmausbot ]; then
+    update-alternatives --remove openmausbot /opt/BotHub/openmausbot
+  elif [ -L /usr/bin/openmausbot ] && [ "$(readlink /usr/bin/openmausbot)" = /opt/BotHub/openmausbot ]; then
     rm -- /usr/bin/openmausbot
   fi
 fi
@@ -46,7 +46,7 @@ fi
 profile=$APPARMOR_DIR/openmausbot-browser
 if [ ! -e "$profile" ] && [ ! -L "$profile" ]; then exit 0; fi
 if [ -L "$APPARMOR_DIR" ] || [ -L "$profile" ] || [ ! -f "$profile" ]; then
-  echo "OpenMausBot AppArmor profile is unsafe; refusing to remove it: $profile" >&2
+  echo "SRK BotHub AppArmor profile is unsafe; refusing to remove it: $profile" >&2
   exit 1
 fi
 if [ "$TEST_MODE" -eq 0 ] && [ -x /usr/bin/ischroot ] && /usr/bin/ischroot; then
@@ -60,11 +60,11 @@ elif [ -x "$APPARMOR_PARSER" ]; then
   # Keep the policy file if unloading genuinely fails so an administrator can
   # inspect/retry the exact rule instead of leaving an invisible kernel rule.
   if ! "$APPARMOR_PARSER" -R "$profile"; then
-    echo "OpenMausBot could not unload its browser AppArmor profile: $profile" >&2
+    echo "SRK BotHub could not unload its browser AppArmor profile: $profile" >&2
     exit 1
   fi
 elif [ -r "$APPARMOR_PROFILES" ]; then
-  echo "OpenMausBot needs apparmor_parser to unload its browser profile: $profile" >&2
+  echo "SRK BotHub needs apparmor_parser to unload its browser profile: $profile" >&2
   exit 1
 fi
 rm -- "$profile"
